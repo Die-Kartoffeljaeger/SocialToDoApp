@@ -1,1 +1,4 @@
-// Should probably put some stuff here
+document.addEventListener("DOMContentLoaded", function(event)
+{
+	// Stuff on page load
+});
