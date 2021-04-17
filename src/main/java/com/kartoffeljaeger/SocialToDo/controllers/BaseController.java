@@ -1,17 +1,18 @@
 package com.kartoffeljaeger.SocialToDo.controllers;
 
-public class BaseController {
+public class BaseController
+{
     protected String buildInitialQueryParameter(
         final String name,
-        final String value
-    ) {
+        final String value)
+	{
         return this.buildQueryParameter(name, value, true);
     }
 
     protected String buildAdditionalQueryParameter(
         final String name, 
-        final String value
-    ) {
+        final String value)
+	{
         return this.buildQueryParameter(name, value, false);
     }
 
@@ -19,8 +20,8 @@ public class BaseController {
     private String buildQueryParameter(
         final String name,
         final String value,
-        final boolean isInitial
-    ) {
+        final boolean isInitial)
+	{
         return (isInitial ? "?" : "&")
             .concat(name)
             .concat("=")
