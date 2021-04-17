@@ -15,7 +15,7 @@ public class User extends ApiResponse {
     private boolean active;
     private String createdOn;
 
-    private UUID getId() {
+    public UUID getId() {
         return this.id;
     }
     public User setId(final UUID id) {
