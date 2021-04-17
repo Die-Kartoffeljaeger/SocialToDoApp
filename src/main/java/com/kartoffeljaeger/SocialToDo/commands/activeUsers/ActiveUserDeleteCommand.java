@@ -28,7 +28,7 @@ public class ActiveUserDeleteCommand
 		Optional<ActiveUserEntity> activeUserEntity =
 			this.activeUserRepository.findBySessionKey(this.sessionKey);
 
-		if (activeUserEntity.isEmpty())
+		if (!activeUserEntity.isPresent())
 			return false;
 
 		this.activeUserRepository.delete(activeUserEntity.get());
