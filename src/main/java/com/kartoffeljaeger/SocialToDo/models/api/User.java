@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+import com.kartoffeljaeger.SocialToDo.models.entities.UserEntity;
+
 import org.apache.commons.lang3.StringUtils;
 
 public class User extends ApiResponse {
@@ -81,7 +83,7 @@ public class User extends ApiResponse {
 
         this.active = userEntity.getActive();
         this.id = userEntity.getId();
-        this.password = userEntity.getPassword();
+        this.password = userEntity.getPassword().toString();
         this.username = userEntity.getUsername();
 
         this.setCreatedOn(userEntity.getCreatedOn());
