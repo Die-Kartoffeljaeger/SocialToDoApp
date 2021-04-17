@@ -39,7 +39,11 @@ public class SignInRouteController extends BaseRouteController
 		signInCommand.setUserRepository(userRepository);
 		signInCommand.setActiveUserRepository(activeUserRepository);
 
-		signInCommand.execute();
+		if(signInCommand.execute())
+		{
+			return new ModelAndView(
+				REDIRECT_PREPEND.concat("/"));
+		}
 		
 		return new ModelAndView();
 	}
