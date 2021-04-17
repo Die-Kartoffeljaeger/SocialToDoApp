@@ -3,6 +3,7 @@ package com.kartoffeljaeger.SocialToDo.controllers;
 import javax.servlet.http.HttpServletRequest;
 
 import com.kartoffeljaeger.SocialToDo.controllers.enums.ViewNames;
+import com.kartoffeljaeger.SocialToDo.models.api.UserSignIn;
 
 import org.springframework.http.MediaType;
 
@@ -24,6 +25,11 @@ public class SignInRouteController extends BaseRouteController
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView handleSignInRequest(HttpServletRequest request)
 	{
+		UserSignIn signIn =	new UserSignIn(
+			request.getParameter("username"),
+			request.getParameter("password"));
+
+		// Temporary below
 		return new ModelAndView();
 	}
 }
