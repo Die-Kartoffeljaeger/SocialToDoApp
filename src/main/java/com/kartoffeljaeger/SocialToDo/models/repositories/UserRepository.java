@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<UserEntity, UUID>
 {
-	boolean existsByUsername(String username);
+	boolean existsById(UUID id);
 	Optional<UserEntity> findById(UUID id);
 	Optional<UserEntity> findByUsername(String username);
 }
