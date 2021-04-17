@@ -3,7 +3,8 @@ package com.kartoffeljaeger.SocialToDo.controllers.enums;
 public enum ViewNames
 {
 	MAIN_MENU("mainMenu"),
-	SIGN_IN("signIn");
+	SIGN_IN("signIn"),
+	REGISTER("register");
 
 	private String route;
 	private String viewName;
