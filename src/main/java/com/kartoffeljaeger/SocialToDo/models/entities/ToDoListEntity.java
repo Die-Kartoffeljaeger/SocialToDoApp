@@ -29,7 +29,6 @@ public class ToDoListEntity {
     }
     
     @Column(name = "userid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
 
     public UUID getUserId() {
