@@ -5,7 +5,6 @@ import org.springframework.stereotype.Indexed;
 
 import java.util.UUID;
 
-/*
 @Entity
 @Table(name="user")
 public class UserEntity {
@@ -15,4 +14,3 @@ public class UserEntity {
     private final UUID id;
     
 }
-*/
