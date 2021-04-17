@@ -18,6 +18,6 @@ public class MainMenuRouteController
 	{
 		// TODO: Use request to verify user is logged in (activeuser)
 
-		return (new ModelAndView(ViewNames.MAIN_MENU.getViewName()));
+		return new ModelAndView(ViewNames.MAIN_MENU.getViewName());
 	}
 }
