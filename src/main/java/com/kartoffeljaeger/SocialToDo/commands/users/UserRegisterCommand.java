@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserRegisterCommand
 {
 	private UserRegister register;
-	
-	@Autowired
-	UserRepository userRepository;
 
 	public UserRegisterCommand(UserRegister register)
 	{
@@ -50,5 +47,11 @@ public class UserRegisterCommand
 		}
 		else
 			return true;
+	}
+
+	UserRepository userRepository;
+	public void setUserRepository(UserRepository userRepository)
+	{
+		this.userRepository = userRepository;
 	}
 }
