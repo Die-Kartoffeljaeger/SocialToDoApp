@@ -1,5 +1,5 @@
 function validateForm() {
-    if (document.forms["registerForm"]["password"] === document.forms["registerForm"]["confirmPassword"]) {
+    if (document.forms["registerForm"]["password"].value === document.forms["registerForm"]["confirmPassword"].value) {
         document.getElementById("mismatchError").style.display = "none";
         //Create a new user with that stuff
         return true;
