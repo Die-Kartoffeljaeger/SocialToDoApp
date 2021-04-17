@@ -8,6 +8,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class User extends ApiResponse {
     private UUID id;
+    private String password;
+    private String username;
+    private boolean active;
+    private String createdOn;
+
     private UUID getId() {
         return this.id;
     }
@@ -16,7 +21,6 @@ public class User extends ApiResponse {
         return this;
     }
 
-    private String username;
     public String getUsername() {
         return this.username;
     }
@@ -31,7 +35,6 @@ public class User extends ApiResponse {
         }
     }
 
-    private String password;
     public String getPassword() {
         return this.password;
     }
@@ -40,7 +43,6 @@ public class User extends ApiResponse {
         return this;
     }
 
-    private boolean active;
     public boolean getActive() {
         return this.active;
     }
@@ -49,7 +51,6 @@ public class User extends ApiResponse {
         return this;
     }
 
-    private String createdOn;
     public String getCreatedOn() {
         return this.createdOn;
     }
@@ -74,7 +75,7 @@ public class User extends ApiResponse {
         this.setCreatedOn(LocalDateTime.now());
 
     }
-    /*
+    
     public User(final UserEntity userEntity) {
         super(false);
 
@@ -86,5 +87,5 @@ public class User extends ApiResponse {
         this.setCreatedOn(userEntity.getCreatedOn());
 
     }
-    */
+    
 }
