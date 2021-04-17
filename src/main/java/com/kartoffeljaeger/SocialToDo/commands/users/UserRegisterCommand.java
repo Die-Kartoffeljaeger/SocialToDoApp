@@ -7,7 +7,6 @@ import com.kartoffeljaeger.SocialToDo.models.entities.UserEntity;
 import com.kartoffeljaeger.SocialToDo.models.repositories.UserRepository;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserRegisterCommand
 {
