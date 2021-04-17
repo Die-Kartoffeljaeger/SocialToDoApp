@@ -1,5 +1,6 @@
 package com.kartoffeljaeger.SocialToDo.models.entities;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -18,12 +19,12 @@ import javax.persistence.Table;
 import com.kartoffeljaeger.SocialToDo.models.api.User;
 
 @Entity
-@Table(name="user")
+@Table(name="appUser")
 public class UserEntity {
     @Id
     @Column(name="id", updatable = false)
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private final UUID id = UUID.randomUUID(); //This probably needs to be different
+    private final UUID id;
 
     public UUID getId() {
         return this.id;
@@ -48,6 +49,11 @@ public class UserEntity {
         return this.password;
     }
 
+    public UserEntity setPassword(final byte[] password) {
+        this.password = password;
+        return this;
+    }
+
     @Column(name = "active")
     private boolean active;
 
@@ -68,11 +74,33 @@ public class UserEntity {
         return this.createdOn;
     }
     
-    public UserEntity synchronize(final User apiUser) {
+    public User synchronize(final User apiUser) {
         this.setActive(apiUser.getActive());
         this.setUsername(apiUser.getUsername());
+        if (!StringUtils.isBlank(apiUser.getPassword())) {
+            this.setPassword(apiUser.getPassword().getBytes());
+        }
 
-        return this;
+        apiUser.setId(this.getId());
+        apiUser.setCreatedOn(this.getCreatedOn());
+
+        return apiUser;
+
+    }
+
+    public UserEntity() {
+        this.active = false;
+        this.id = new UUID(0,0);
+        this.password = new byte[0];
+        this.username = new String();
+        this.createdOn = LocalDateTime.now();
+    }
+
+    public UserEntity(final User apiUser) {
+        this.id = new UUID(0,0);
+        this.active = apiUser.getActive();
+        this.createdOn = LocalDateTime.parse(apiUser.getCreatedOn());
+        this.password = apiUser.getPassword().getBytes();
 
     }
 }
