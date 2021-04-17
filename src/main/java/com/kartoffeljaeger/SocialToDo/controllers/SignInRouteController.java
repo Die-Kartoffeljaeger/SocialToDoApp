@@ -2,9 +2,13 @@ package com.kartoffeljaeger.SocialToDo.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.kartoffeljaeger.SocialToDo.commands.users.UserSignInCommand;
 import com.kartoffeljaeger.SocialToDo.controllers.enums.ViewNames;
 import com.kartoffeljaeger.SocialToDo.models.api.UserSignIn;
+import com.kartoffeljaeger.SocialToDo.models.repositories.ActiveUserRepository;
+import com.kartoffeljaeger.SocialToDo.models.repositories.UserRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import org.springframework.stereotype.Controller;
@@ -29,7 +33,20 @@ public class SignInRouteController extends BaseRouteController
 			request.getParameter("username"),
 			request.getParameter("password"));
 
-		// Temporary below
+		UserSignInCommand signInCommand =
+			new UserSignInCommand(signIn, request.getSession().getId());
+
+		signInCommand.setUserRepository(userRepository);
+		signInCommand.setActiveUserRepository(activeUserRepository);
+
+		signInCommand.execute();
+		
 		return new ModelAndView();
 	}
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	ActiveUserRepository activeUserRepository;
 }

@@ -19,12 +19,6 @@ public class UserSignInCommand
 	private UserSignIn signIn;
 	private String sessionKey;
 
-	@Autowired
-	UserRepository userRepository;
-
-	@Autowired
-	ActiveUserRepository activeUserRepository;
-
 	public UserSignInCommand(UserSignIn signIn, String sessionKey)
 	{
 		this.signIn = signIn;
@@ -99,5 +93,17 @@ public class UserSignInCommand
 		}
 		else
 			return true;
+	}
+
+	UserRepository userRepository;
+	public void setUserRepository(UserRepository userRepository)
+	{
+		this.userRepository = userRepository;
+	}
+
+	ActiveUserRepository activeUserRepository;
+	public void setActiveUserRepository(ActiveUserRepository activeUserRepository)
+	{
+		this.activeUserRepository = activeUserRepository;
 	}
 }
