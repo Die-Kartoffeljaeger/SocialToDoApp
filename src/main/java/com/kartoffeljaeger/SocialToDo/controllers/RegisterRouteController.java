@@ -33,6 +33,7 @@ public class RegisterRouteController extends BaseRouteController
 
 		UserRegisterCommand registerCommand = new UserRegisterCommand(register);
 		registerCommand.setUserRepository(this.userRepository);
+		registerCommand.execute();
 
 		return new ModelAndView();
 	}
