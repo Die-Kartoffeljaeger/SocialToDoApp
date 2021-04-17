@@ -6,7 +6,9 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import com.kartoffeljaeger.SocialToDo.models.api.UserSignIn;
+import com.kartoffeljaeger.SocialToDo.models.entities.ActiveUserEntity;
 import com.kartoffeljaeger.SocialToDo.models.entities.UserEntity;
+import com.kartoffeljaeger.SocialToDo.models.repositories.ActiveUserRepository;
 import com.kartoffeljaeger.SocialToDo.models.repositories.UserRepository;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +21,9 @@ public class UserSignInCommand
 
 	@Autowired
 	UserRepository userRepository;
+
+	@Autowired
+	ActiveUserRepository activeUserRepository;
 
 	public UserSignInCommand(UserSignIn signIn, String sessionKey)
 	{
@@ -35,7 +40,7 @@ public class UserSignInCommand
 
 		// Searches for user account by username
 		Optional<UserEntity> user =
-			userRepository.findByUsername(this.signIn.getUsername());
+			this.userRepository.findByUsername(this.signIn.getUsername());
 
 		// Checks if the user was found
 		if (!user.isPresent())
@@ -54,7 +59,28 @@ public class UserSignInCommand
 		// -----
 
 		// Check to see if user is already logged in
-		// TODO
+		Optional<ActiveUserEntity> activeUserContainer =
+			this.activeUserRepository.findById(user.get().getId());
+
+		// If user is already logged in...
+		if (activeUserContainer.isPresent())
+		{
+			// Updates session to current and then saves to database
+			ActiveUserEntity activeUser =
+				activeUserContainer.get().setSessionKey(sessionKey);
+
+			this.activeUserRepository.save(activeUser);
+		}
+		else
+		{
+			// Make a new active user session in the database
+			ActiveUserEntity activeUser = new ActiveUserEntity();
+			activeUser.setUsername(user.get().getUsername());
+			activeUser.setUserId(user.get().getId());
+			activeUser.setSessionKey(sessionKey);
+
+			this.activeUserRepository.save(activeUser);
+		}
 
 		return true;
 	}
