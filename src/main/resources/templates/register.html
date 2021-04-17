@@ -1,6 +1,8 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
+    <script type="text/javascript" src="/scripts/register.js" defer></script>
+
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
 	<link rel="stylesheet" href="/styles/signin.css">
     <title>Register - Social To-Do</title>
@@ -17,7 +19,7 @@
         <label class="sr-only "for="confirmPassword">Confirm Password:</label>
 		<input class="form-control" type="password" id="confirmPassword" placeholder="Confirm Password">
         <br><br>
-		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Register" onclick="checkPassword">
+		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Register" onclick="checkPassword(password, confirmPassword)">
 	</form>
 </body>
 </html>

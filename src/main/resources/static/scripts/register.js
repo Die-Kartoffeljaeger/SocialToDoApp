@@ -1,8 +1,9 @@
 function checkPassword(passedPassword, confirmPassword) {
     if (passedPassword === confirmPassword) {
-            return true;
+        //Create a new user with that stuff
     }
     else {
-        return false;
+        document.getElementById("mismatchError").value =
+            "Passwords do not match!";
     }
 }
