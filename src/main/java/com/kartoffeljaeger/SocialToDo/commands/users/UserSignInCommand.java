@@ -12,7 +12,6 @@ import com.kartoffeljaeger.SocialToDo.models.repositories.ActiveUserRepository;
 import com.kartoffeljaeger.SocialToDo.models.repositories.UserRepository;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserSignInCommand
 {
