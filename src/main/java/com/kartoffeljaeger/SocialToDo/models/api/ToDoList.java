@@ -44,7 +44,7 @@ public class ToDoList extends ApiResponse{
         return this;
     }
 
-    //Suggester keeps track of who made the suggestion that is this entry. 
+    // Suggester keeps track of who made the suggestion that is this entry. 
     public String getSuggester() {
         return this.suggester;
     }
@@ -81,6 +81,9 @@ public class ToDoList extends ApiResponse{
         this.entryId = new UUID(0,0);
         this.userId = new UUID(0,0);
 
+		this.content = "Empty";
+
+		this.setDeadline(LocalDateTime.now());
         this.setCreatedOn(LocalDateTime.now());
     }
 
@@ -91,6 +94,9 @@ public class ToDoList extends ApiResponse{
         this.userId = suggestee.getId();
         this.suggester = suggester.getUsername();
 
+		this.content = "Empty";
+
+		this.setDeadline(LocalDateTime.now());
         this.setCreatedOn(LocalDateTime.now());
     }
 

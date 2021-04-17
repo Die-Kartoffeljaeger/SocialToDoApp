@@ -69,7 +69,7 @@ public class User extends ApiResponse {
     public User() {
         super();
 
-        this.active = true;
+        this.active = false;
         this.id = new UUID(0,0);
         this.password = StringUtils.EMPTY;
         this.username = StringUtils.EMPTY;
