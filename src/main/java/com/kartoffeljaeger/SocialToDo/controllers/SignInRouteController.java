@@ -1,7 +1,5 @@
 package com.kartoffeljaeger.SocialToDo.controllers;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.kartoffeljaeger.SocialToDo.controllers.enums.ViewNames;
 
 import org.springframework.stereotype.Controller;
@@ -10,14 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/")
-public class MainMenuRouteController
+@RequestMapping(value = "/signIn")
+public class SignInRouteController extends BaseRouteController
 {
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView start(final HttpServletRequest request)
+	public ModelAndView start()
 	{
-		// TODO: Use request to verify user is logged in (activeuser)
-
-		return new ModelAndView(ViewNames.MAIN_MENU.getViewName());
+		return new ModelAndView(ViewNames.SIGN_IN.getViewName());
 	}
 }
