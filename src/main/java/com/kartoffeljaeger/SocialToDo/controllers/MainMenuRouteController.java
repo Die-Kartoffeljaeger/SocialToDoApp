@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.bytebuddy.dynamic.TypeResolutionStrategy.Active;
-
 @Controller
 @RequestMapping(value = "/")
-public class MainMenuRouteController
+public class MainMenuRouteController extends BaseRouteController
 {
 
 	@RequestMapping(method = RequestMethod.GET)
