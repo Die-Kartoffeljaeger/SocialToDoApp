@@ -1,6 +1,10 @@
 package com.kartoffeljaeger.SocialToDo.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.kartoffeljaeger.SocialToDo.controllers.enums.ViewNames;
+
+import org.springframework.http.MediaType;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,5 +19,11 @@ public class SignInRouteController extends BaseRouteController
 	public ModelAndView start()
 	{
 		return new ModelAndView(ViewNames.SIGN_IN.getViewName());
+	}
+
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public ModelAndView handleSignInRequest(HttpServletRequest request)
+	{
+		return new ModelAndView();
 	}
 }
