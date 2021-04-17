@@ -1,4 +1,4 @@
-package com.kartoffeljaeger.SocialToDo.commands;
+package com.kartoffeljaeger.SocialToDo.commands.users;
 
 import java.util.Arrays;
 import java.util.Optional;
