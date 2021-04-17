@@ -3,8 +3,6 @@ package com.kartoffeljaeger.SocialToDo.models.entities;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.stereotype.Indexed;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -92,7 +90,7 @@ public class UserEntity {
         this.active = false;
         this.id = new UUID(0,0);
         this.password = new byte[0];
-        this.username = new String();
+        this.username = StringUtils.EMPTY;
         this.createdOn = LocalDateTime.now();
     }
 
