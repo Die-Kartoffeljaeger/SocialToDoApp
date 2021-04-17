@@ -74,7 +74,7 @@ public class User extends ApiResponse {
         this.setCreatedOn(LocalDateTime.now());
 
     }
-
+    /*
     public User(final UserEntity userEntity) {
         super(false);
 
@@ -86,4 +86,5 @@ public class User extends ApiResponse {
         this.setCreatedOn(userEntity.getCreatedOn());
 
     }
+    */
 }

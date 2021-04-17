@@ -14,4 +14,5 @@ public class UserEntity {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private final UUID id;
     
-}*/
+}
+*/
