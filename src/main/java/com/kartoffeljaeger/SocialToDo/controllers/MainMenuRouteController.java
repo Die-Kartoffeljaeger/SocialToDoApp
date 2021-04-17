@@ -19,11 +19,12 @@ public class MainMenuRouteController extends BaseRouteController
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView start(final HttpServletRequest request)
 	{
-		// TODO: Use request to verify user is logged in (activeuser)
-		if (activeUserRepository.findBySessionKey(request.getSession().getId()).isPresent()) {
+		if (activeUserRepository.findBySessionKey(request.getSession().getId()).isPresent())
+		{
 			return new ModelAndView(ViewNames.MAIN_MENU.getViewName());
 		}
-		else {
+		else
+		{
 			return this.invalidSessionResponse();
 		}
 	}
