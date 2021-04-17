@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+import com.kartoffeljaeger.SocialToDo.models.entities.ToDoListEntity;
+
 public class ToDoList extends ApiResponse{
     private UUID entryId;
     private UUID userId;
@@ -97,7 +99,7 @@ public class ToDoList extends ApiResponse{
 
         this.entryId = toDoListEntity.getEntryId();
         this.content = toDoListEntity.getContent();
-        this.deadline = toDoListEntity.getDeadline();
+        this.deadline = toDoListEntity.getDeadline().toString();
         this.suggester = toDoListEntity.getSuggester();
         this.userId = toDoListEntity.getUserId();
 
