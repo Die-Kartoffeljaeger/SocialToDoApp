@@ -1,0 +1,65 @@
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Social To-Do</title>
+
+	<link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+</head>
+
+<body>
+	<nav class = "navbar navbar-default navbar-static-top">
+		<div class="topNavBar">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Thing1</a></li>
+				<li><a href="#">Thing2</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="navbar-header">
+		<h1>To Watch:</h1>
+		<hr>
+
+		<table style="width:65%">
+			<hr>
+			<!-- TODO: Placeholder -->
+			<tr>
+				<td>Thing1</td>
+				<td>thing2</td>
+				<td><button>thing3</button></td>
+			</tr>
+			<tr>
+				<td>Other1</td>
+				<td>Other2</td>
+				<td><button class="btn btn-default pull-right tooltip-bottom" title="tooltip">Other3</button></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="col-sm-3 col-sm-offfset-1">
+		<h1>Friends</h1>
+		<hr>
+
+		<!--- TODO: Placeholder -->
+		<p>Example1</p>
+		<p>example2</p>
+		<p>example3</p>
+
+	</div>
+</body>
+
+<!-- TODO: move this to .css file -->
+<style>
+.friendsList {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+	position: absolute;
+	right: 1;
+	height: 100%;
+	overflow: auto;
+}
+</style>
+
+</html>
