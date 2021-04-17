@@ -92,7 +92,7 @@ public class UserEntity {
         this.active = false;
         this.id = new UUID(0,0);
         this.password = new byte[0];
-        this.username = new String();
+        this.username = StringUtils.EMPTY;
         this.createdOn = LocalDateTime.now();
     }
 
