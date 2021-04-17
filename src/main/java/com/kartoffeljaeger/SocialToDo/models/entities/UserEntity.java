@@ -19,7 +19,7 @@ import javax.persistence.Table;
 import com.kartoffeljaeger.SocialToDo.models.api.User;
 
 @Entity
-@Table(name="user")
+@Table(name="appUser")
 public class UserEntity {
     @Id
     @Column(name="id", updatable = false)
